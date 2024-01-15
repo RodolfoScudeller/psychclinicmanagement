@@ -6,4 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PsychologistRepository extends JpaRepository<Psychologist, Long> {
     Page<Psychologist> findAllByActiveTrue(Pageable pagination);
+    Psychologist findPsychologistByCrpAndActive(String crp, Boolean active);
 }
