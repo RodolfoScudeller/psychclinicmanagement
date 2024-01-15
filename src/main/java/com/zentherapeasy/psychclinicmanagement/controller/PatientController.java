@@ -1,5 +1,9 @@
-package com.zentherapeasy.psychclinicmanagement.patient;
+package com.zentherapeasy.psychclinicmanagement.controller;
 
+import com.zentherapeasy.psychclinicmanagement.patient.Patient;
+import com.zentherapeasy.psychclinicmanagement.patient.PatientListingData;
+import com.zentherapeasy.psychclinicmanagement.patient.PatientRegistrationData;
+import com.zentherapeasy.psychclinicmanagement.patient.PatientRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
