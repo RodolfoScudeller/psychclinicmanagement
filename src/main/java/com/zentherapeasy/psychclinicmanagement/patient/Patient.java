@@ -54,4 +54,8 @@ public class Patient {
             this.address.updateAddress(data.addressData());
         }
     }
+
+    public void delete(){
+        this.active = false;
+    }
 }
