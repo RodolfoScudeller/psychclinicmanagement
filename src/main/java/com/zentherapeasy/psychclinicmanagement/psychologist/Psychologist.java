@@ -37,8 +37,6 @@ public class Psychologist {
     }
 
     public void update(PsychologistUpdateData data){
-        System.out.println("Passei aqui");
-
         if(data.name() != null){
             this.name = data.name();
         }
@@ -54,6 +52,5 @@ public class Psychologist {
         if(data.addressData() != null){
             this.address.updateAddress(data.addressData());
         }
-        System.out.println("Passei  2");
     }
 }
