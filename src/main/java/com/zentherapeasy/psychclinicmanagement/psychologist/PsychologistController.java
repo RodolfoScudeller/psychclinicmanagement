@@ -8,7 +8,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("psychologist")
+@RequestMapping("api/v1/psychologist")
 public class PsychologistController {
     @Autowired
     private PsychologistRepository repository;
@@ -20,7 +20,6 @@ public class PsychologistController {
 
     @PostMapping
     public void registration(@RequestBody @Valid PsychologistRegistrationData data){
-        System.out.println(data);
         repository.save(new Psychologist(data));
     }
 }
