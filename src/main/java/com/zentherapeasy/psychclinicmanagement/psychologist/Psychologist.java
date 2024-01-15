@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
+@EqualsAndHashCode(of = "crp")
 public class Psychologist {
     @Id
     private String crp;
@@ -32,6 +32,6 @@ public class Psychologist {
         this.telephone = psychologistRegistrationData.telephone();
         this.health_insurance = psychologistRegistrationData.health_insurance();
         this.active = true;
-        this.address = new Address(psychologistRegistrationData.dataAddress());
+        this.address = new Address(psychologistRegistrationData.addressData());
     }
 }
