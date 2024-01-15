@@ -53,4 +53,8 @@ public class Psychologist {
             this.address.updateAddress(data.addressData());
         }
     }
+
+    public void delete(){
+        this.active = false;
+    }
 }
