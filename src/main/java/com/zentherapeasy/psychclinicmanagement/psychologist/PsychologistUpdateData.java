@@ -10,6 +10,7 @@ public record PsychologistUpdateData(
         String telephone,
         String email,
         String health_insurance,
+        String password,
         AddressData addressData
 ) {
 }

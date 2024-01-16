@@ -1,5 +1,5 @@
 create table patient (
-    cpf bigint not null,
+    cpf varchar(100) primary key,
     name varchar(100) not null,
     email varchar(100) not null unique,
     street varchar(100) not null,
@@ -11,6 +11,5 @@ create table patient (
     city varchar(100) not null,
     health_insurance varchar(100) not null,
     telephone varchar(100) not null,
-    active boolean,
-    primary key(cpf)
+    active boolean
 );
