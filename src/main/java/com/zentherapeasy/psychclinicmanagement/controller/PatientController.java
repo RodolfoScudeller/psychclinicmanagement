@@ -1,6 +1,7 @@
 package com.zentherapeasy.psychclinicmanagement.controller;
 
 import com.zentherapeasy.psychclinicmanagement.patient.*;
+import com.zentherapeasy.psychclinicmanagement.psychologist.PsychologistListingData;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -25,6 +26,19 @@ public class PatientController {
     @GetMapping
     public Page<PatientListingData> list(@PageableDefault(size = 10, sort = {"name"})Pageable pageable){
         return repository.findAllByActiveTrue(pageable).map(PatientListingData::new);
+    }
+
+    @GetMapping("/{cpf}")
+    public ResponseEntity<PatientListingData> findOnePatient(@PathVariable String cpf){
+        var patient = repository.getPatientsByCpfAndActive(cpf, true);
+
+        if(patient != null){
+            PatientListingData patientListingData = new PatientListingData(patient);
+            return ResponseEntity.ok(patientListingData);
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+
     }
 
     @PutMapping

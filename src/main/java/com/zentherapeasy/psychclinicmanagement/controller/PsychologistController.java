@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("api/v1/psychologist")
 public class PsychologistController {
@@ -20,6 +22,20 @@ public class PsychologistController {
     public Page<PsychologistListingData> list(@PageableDefault(size = 10, sort = {"name"})Pageable pageable){
         return repository.findAllByActiveTrue(pageable).map(PsychologistListingData::new);
     }
+
+    @GetMapping("/{crp}")
+    public ResponseEntity<PsychologistListingData> findOnePsychologist(@PathVariable String crp){
+        var psychologist = repository.findPsychologistByCrpAndActive(crp, true);
+
+        if(psychologist != null){
+            PsychologistListingData psychologistListingData = new PsychologistListingData(psychologist);
+            return ResponseEntity.ok(psychologistListingData);
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+
+    }
+
 
     @PostMapping
     public void create(@RequestBody @Valid PsychologistRegistrationData data){
@@ -35,8 +51,8 @@ public class PsychologistController {
 
     @DeleteMapping("/{crm}")
     @Transactional
-    public ResponseEntity delete(@PathVariable String crm){
-        var psychologist = repository.findPsychologistByCrpAndActive(crm, true);
+    public ResponseEntity delete(@PathVariable String crp){
+        var psychologist = repository.findPsychologistByCrpAndActive(crp, true);
 
         psychologist.delete();
 
