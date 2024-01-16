@@ -1,5 +1,5 @@
 create table psychologist (
-    crp varchar(100) not null,
+    crp varchar(100) primary key,
     name varchar(100) not null,
     email varchar(100) not null unique,
     street varchar(100) not null,
@@ -12,5 +12,5 @@ create table psychologist (
     telephone varchar(100) not null,
     health_insurance varchar(100) not null,
     active boolean,
-    primary key(crp)
+    password varchar(100) not null
 );

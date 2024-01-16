@@ -19,6 +19,8 @@ public record PsychologistRegistrationData(
         String crp,
         @NotBlank
         String health_insurance,
+        @NotBlank
+        String password,
         @NotNull
         @Valid
         AddressData addressData

@@ -23,6 +23,7 @@ public class Psychologist {
     private String telephone;
     private Boolean active;
     private String health_insurance;
+    private String password;
     @Embedded
     private Address address;
 
@@ -32,6 +33,7 @@ public class Psychologist {
         this.email = psychologistRegistrationData.email();
         this.telephone = psychologistRegistrationData.telephone();
         this.health_insurance = psychologistRegistrationData.health_insurance();
+        this.password = psychologistRegistrationData.password();
         this.active = true;
         this.address = new Address(psychologistRegistrationData.addressData());
     }
